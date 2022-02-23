@@ -1,0 +1,39 @@
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import Package from './Package';
+import './styles/Packages.css';
+export default function Packages() {
+  const packages = useSelector(state => state.packages.allPackages);
+  return (
+    <div className='packages'>
+      <div className='packages_title'>
+        <NavLink to='/' className='link link--icon'>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='16'
+            height='16'
+            fill='currentColor'
+            viewBox='0 0 16 16'>
+            <path
+              fillRule='evenodd'
+              d='M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z'
+            />
+          </svg>
+          back to main
+        </NavLink>
+        <h1>all packages</h1>
+        <span className='packages_total'>total: {`${packages?.length}`}</span>
+      </div>
+      {packages.length > 0 &&
+        packages.map(box => (
+          <Package
+            key={box.id}
+            type={box.type}
+            carrier={box.carrier}
+            recipient={box.recipient}
+          />
+        ))}
+    </div>
+  );
+}

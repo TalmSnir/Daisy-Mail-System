@@ -1,0 +1,25 @@
+.badge {
+  --_text-color: var(--gray-9);
+  --_bg-color: var(--gray-9);
+  border-radius: var(--radius-round);
+  background-color: 1px solid var(--_bg-color);
+  color: var(--_text-color);
+  padding-inline: var(--size-2);
+  padding-block: var(--size-1);
+  font-size: calc(var(--font-size-0) / 1.2);
+  letter-spacing: var(--font-letterspacing-1);
+  background-color: var(--_bg-color);
+  font-weight: var(--font-weight-5);
+}
+.badge.badge--carrier {
+  --_text-color: var(--gray-0);
+  --_bg-color: var(--green-7);
+  max-inline-size: var(--size-content-1);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.badge.badge--size {
+  --_text-color: var(--green-7);
+  --_bg-color: var(--gray-1);
+}

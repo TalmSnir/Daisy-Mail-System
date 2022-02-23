@@ -1,0 +1,21 @@
+.only-user_title {
+  width: 100%;
+  grid-column: 1/-1;
+  font-size: var(--font-size-fluid-2);
+  display: flex;
+  gap: var(--size-2);
+  align-items: flex-end;
+  justify-content: space-between;
+  display: flex;
+  color: var(--gray-9);
+}
+.only-user_title {
+  color: inherit;
+
+  text-align: center;
+}
+.only-user_total {
+  text-transform: capitalize;
+  font-size: 0.6em;
+  color: inherit;
+}

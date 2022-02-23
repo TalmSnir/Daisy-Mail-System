@@ -1,0 +1,33 @@
+.users {
+  padding-block-start: var(--size-4);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--size-4);
+  align-items: stretch;
+  padding: var(--size-fluid-3);
+}
+.users_title {
+  width: 100%;
+  grid-column: 1/-1;
+  font-size: var(--font-size-fluid-2);
+  justify-self: center;
+  display: flex;
+  gap: var(--size-2);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-block-end: var(--size-4);
+  color: var(--gray-9);
+}
+.users_title h1 {
+  color: inherit;
+}
+.users_total {
+  text-transform: capitalize;
+  font-size: 0.6em;
+  color: inherit;
+}
+.users_actions {
+  display: flex;
+  gap: var(--size-2);
+}

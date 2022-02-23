@@ -1,0 +1,35 @@
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--size-6);
+  background-color: var(--green-0);
+  padding: var(--size-5);
+  border-radius: var(--radius-2);
+}
+.user-package {
+  font-size: calc(var(--font-size-fluid-1) / 1.8);
+}
+.user_packages_title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--size-2);
+}
+span {
+  display: inline-block;
+}
+ul {
+  padding: 0;
+}
+button {
+  margin-block-start: auto;
+}
+.user_title_name {
+  font-size: calc(var(--font-size-fluid-1) / 1.1);
+  font-weight: var(--font-weight-6);
+}
+.user_title_num {
+  font-size: calc(var(--font-size-fluid-1) / 1.2);
+  font-weight: var(--font-weight-5);
+}

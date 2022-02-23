@@ -1,0 +1,28 @@
+.btn {
+  --_bg-color: var(--gray-4);
+  --_text_color: var(--gray-0);
+  appearance: none;
+  padding: var(--size-2) var(--size-3);
+  font-weight: var(--font-weight-5);
+  font-size: calc(var(--font-size-fluid-1) / 1.8);
+  border: 0;
+  background-color: var(--_bg-color);
+  color: var(--_text_color);
+  border-radius: var(--radius-2);
+  text-transform: capitalize;
+  display: inline-block;
+}
+.btn--primary {
+  --_bg-color: var(--green-7);
+  --_text_color: var(--gray-0);
+}
+.btn--secondary {
+  --_bg-color: transparent;
+  --_text_color: var(--green-7);
+  box-shadow: inset 0 0 0 2px var(--green-7);
+}
+.btn--icon {
+  display: flex;
+  align-items: center;
+  gap: var(--size-2);
+}
