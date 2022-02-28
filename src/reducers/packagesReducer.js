@@ -37,6 +37,33 @@ export const notifyUserSingle = createAsyncThunk(
   }
 );
 
+export const addPackage = createAsyncThunk(
+  'packages/addPackage',
+  async payload => {
+    const { name, email, type, carrier } = payload;
+    const response = await fetch('/daisy-api-sim/add-package', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        recipient: { email, name },
+        carrier,
+        type,
+      }),
+    });
+    return response.json();
+  }
+);
+export const fetchPackages = createAsyncThunk(
+  'packages/fetchPackages',
+  async () => {
+    const response = await fetch('/daisy-api-sim', {
+      method: 'GET',
+    });
+    return response.json();
+  }
+);
 const initialState = {
   allPackages: [],
   packagesByUsers: [],
@@ -49,9 +76,7 @@ const packagesSlice = createSlice({
     setAllPackages: (state, action) => {
       state.allPackages = action.payload;
     },
-    addPackage: (state, action) => {
-      state.allPackages.push(action.payload);
-    },
+
     removePackage: (state, action) => {
       state.allPackages = state.allPackages.filter(
         packageItem => packageItem.id !== action.payloads
@@ -66,27 +91,30 @@ const packagesSlice = createSlice({
     },
   },
   extraReducers: {
-    [notifyUserAll.pending]: (state, action) => {
+    [notifyUserAll.pending]: state => {
       state.status = 'posting';
     },
-    [notifyUserAll.fulfilled]: (state, action) => {
-      state.list = action.payload;
+    [notifyUserAll.fulfilled]: state => {
       state.posting = 'success';
     },
-    [notifyUserSingle.pending]: (state, action) => {
+    [notifyUserSingle.pending]: state => {
       state.status = 'posting';
     },
-    [notifyUserSingle.fulfilled]: (state, action) => {
-      state.list = action.payload;
+    [notifyUserSingle.fulfilled]: state => {
       state.posting = 'success';
+    },
+    [addPackage.pending]: state => {
+      state.status = 'posting';
+    },
+    [addPackage.fulfilled]: state => {
+      state.posting = 'success';
+    },
+    [fetchPackages.fulfilled]: (state, action) => {
+      state.allPackages = action.payload.result.packages;
     },
   },
 });
 
-export const {
-  setAllPackages,
-  addPackage,
-  removePackage,
-  filterPackagesByUsers,
-} = packagesSlice.actions;
+export const { setAllPackages, removePackage, filterPackagesByUsers } =
+  packagesSlice.actions;
 export default packagesSlice.reducer;

@@ -26,3 +26,7 @@
   align-items: center;
   gap: var(--size-2);
 }
+.btn--block {
+  padding: var(--size-3) var(--size-6);
+  background-color: var(--green-8);
+}
